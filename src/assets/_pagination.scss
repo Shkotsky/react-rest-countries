@@ -1,0 +1,36 @@
+.center {
+  text-align: center;
+  padding: 3em 7em;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  & a {
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin: 8px 4px;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .center {
+    padding: 0 1em;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1026px) {
+  .center {
+    padding: 0 1em;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+  .center {
+    padding: 0 1em;
+  }
+}

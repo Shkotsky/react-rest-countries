@@ -1,0 +1,20 @@
+.navbar {
+  display: inline-block;
+  width: 100%;
+  padding: 0 7em;
+  text-decoration: none;
+}
+
+.wrapper-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 75px;
+}
+
+.navbar__button--mode {
+  cursor: pointer;
+  svg {
+    margin-right: 10px;
+  }
+}

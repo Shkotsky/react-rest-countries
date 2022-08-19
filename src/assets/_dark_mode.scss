@@ -1,0 +1,101 @@
+@import "./variables.scss";
+
+#Light {
+  background-color: $light-mode-background;
+  color: $light-mode-text;
+
+  & .container {
+    background-color: $light-mode-background;
+    color: $light-mode-text;
+  }
+
+  .card,
+  .btn,
+  input,
+  select {
+    box-shadow: #858585 0px 0px 5px 0px;
+  }
+  & .loader {
+    color: $dark-mode-elements;
+  }
+
+  & .card,
+  .btn,
+  .navbar,
+  .search-form input,
+  select {
+    background-color: $light-mode-background;
+    box-shadow: $light-mode-input 0px 0px 5px 0px;
+  }
+
+  & .card:hover {
+    background-color: #f7f7f7;
+  }
+  & .pagination {
+    & a {
+      color: $light-mode-text;
+      border: 1px solid $light-mode-input;
+      &.active {
+        background-color: $dark-mode-elements;
+        color: $light-mode-background;
+        border: 1px solid $dark-mode-elements;
+      }
+      &:hover:not(.active) {
+        background-color: rgba(221, 221, 221, 0.806);;
+      }
+    }
+  }
+}
+
+#Dark {
+  background-color: $dark-mode-background;
+  color: $dark-mode-Text-light-mode-elements;
+
+  & .container {
+    background-color: $dark-mode-background;
+    color: $dark-mode-Text-light-mode-elements;
+  }
+
+  & .loader {
+    color: $light-mode-background;
+  }
+
+  & .card,
+  .btn,
+  input,
+  select {
+    box-shadow: #151d24 0px 0px 5px 0px;
+  }
+
+  & .card,
+  .btn,
+  .navbar,
+  .search-form input,
+  select {
+    background-color: $dark-mode-elements;
+    color: $dark-mode-Text-light-mode-elements;
+  }
+
+  & .card:hover {
+    background-color: #2b3c4a;
+  }
+
+  & input::placeholder {
+    color: $dark-mode-Text-light-mode-elements;
+  }
+
+  & .pagination {
+    & a {
+      color: $dark-mode-Text-light-mode-elements;
+      border: 1px solid #ddd;
+      &.active {
+        background-color: $dark-mode-Text-light-mode-elements;
+        color: $dark-mode-background;
+        border: 1px solid $dark-mode-Text-light-mode-elements;
+      }
+      &:hover:not(.active) {
+        background-color: rgba(221, 221, 221, 0.119);
+      }
+    }
+  }
+}
