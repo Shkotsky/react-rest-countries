@@ -17,7 +17,6 @@ function App() {
 
   const toggleTheme = () => {
     setTheme((curr) => (curr === "Light" ? "Dark" : "Light"));
-    console.log(theme);
     localStorage.setItem("themeMode", theme === "Light" ? "Dark" : "Light");
   };
 
