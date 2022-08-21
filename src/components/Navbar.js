@@ -1,9 +1,8 @@
 import React from "react";
-import '../assets/_navbar.scss'
+import "../assets/_navbar.scss";
 import { Link } from "react-router-dom";
 
-function Navbar({toggleTheme, theme}) {
-
+function Navbar({ toggleTheme, theme }) {
   return (
     <>
       <nav className="navbar">
@@ -12,7 +11,14 @@ function Navbar({toggleTheme, theme}) {
             <h1>Where in the world?</h1>
           </Link>
           <div className="navbar__button--mode">
-            <span className="font-weight-bold" onClick={toggleTheme}>{theme} Mode</span>
+            <span className="font-weight-bold" onClick={toggleTheme}>
+              {theme === "Light" ? (
+                <span>&#127774;</span>
+              ) : (
+                <span>&#127769;</span>
+              )}{" "}
+              {theme} Mode
+            </span>
           </div>
         </div>
       </nav>
