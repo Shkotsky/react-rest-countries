@@ -10,7 +10,6 @@ function SearchForm({ searchCountries, loadingStatus, setToFirstPage }) {
 
   const searchCountry = () => {
     setToFirstPage(1);
-    getCountries();
     setSearch(searchValue.current.value);
   };
 
@@ -31,8 +30,11 @@ function SearchForm({ searchCountries, loadingStatus, setToFirstPage }) {
   }, [countries, selects, loading]);
 
   useEffect(() => {
-    getCountries();
-    searchCountries(countries);
+    const timer = setTimeout(() => {
+      getCountries();
+      searchCountries(countries);
+    }, 500);
+    return () => clearTimeout(timer);
   }, [search]);
 
   const getCountries = async () => {
