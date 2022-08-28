@@ -1,18 +1,16 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router";
 
-function SearchForm(props) {
+function SearchForm({ searchCountries, loadingStatus, setToFirstPage }) {
   const searchValue = useRef("");
   const [search, setSearch] = useState("");
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(false);
   const [selects, setSelects] = useState("All");
 
-  const navigate = useNavigate();
-
   const searchCountry = () => {
-    props.setToFirstPage(1);
+    setToFirstPage(1);
+    getCountries();
     setSearch(searchValue.current.value);
   };
 
@@ -25,19 +23,19 @@ function SearchForm(props) {
       const newCountries = countries.filter(
         (country) => country.region === selects
       );
-      props.searchCountries(newCountries);
+      searchCountries(newCountries);
     } else {
-      props.searchCountries(countries);
+      searchCountries(countries);
     }
-    props.loadingStatus(loading);
+    loadingStatus(loading);
   }, [countries, selects, loading]);
 
   useEffect(() => {
     getCountries();
-    props.searchCountries(countries);
+    searchCountries(countries);
   }, [search]);
 
-  const getCountries = useCallback(async () => {
+  const getCountries = async () => {
     setLoading(true);
     try {
       const res = await axios.get(
@@ -52,7 +50,7 @@ function SearchForm(props) {
       setLoading(false);
       console.log(error);
     }
-  }, [search]);
+  };
 
   return (
     <form className="search-form" onSubmit={handleSubmit}>
